@@ -1,0 +1,33 @@
+repos:
+  - repo: https://github.com/pycqa/isort
+    rev: 5.5.2
+    hooks:
+      - id: isort
+  -   repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v2.3.0
+      hooks:
+      -   id: check-yaml
+      -   id: end-of-file-fixer
+      -   id: trailing-whitespace
+  -   repo: https://github.com/psf/black
+      rev: 19.3b0
+      hooks:
+      -   id: black
+          language_version: python3
+  -   repo: https://gitlab.com/PyCQA/flake8
+      rev: 3.8.3
+      hooks:
+      -   id: flake8
+          exclude: 'tests/'
+          additional_dependencies:
+              - flake8-builtins
+              - flake8-bugbear
+              - flake8-quotes
+              - flake8-eradicate
+              - flake8-mock
+              - flake8-pie
+              - flake8-print
+              - flake8-printf-formatting
+              - flake8-pytest-style
+              - flake8-variables-names
+          args: [--inline-quotes=double, --max-line-length=90]

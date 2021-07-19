@@ -1,0 +1,22 @@
+# -*- coding: utf-8 -*-
+
+[report]
+include =
+    api/*
+    core/*
+
+omit =
+    tests/*
+    core/database/migrations/__init__.py
+    core/database/migrations/env.py
+
+exclude_lines =
+    # Have to re-enable the standard pragma
+    pragma: no cover
+
+    # Don't complain if tests don't hit defensive assertion code:
+    raise AssertionError
+    raise NotImplementedError
+
+[html]
+directory = tests/htmlcov

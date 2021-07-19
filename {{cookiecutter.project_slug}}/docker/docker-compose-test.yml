@@ -1,0 +1,42 @@
+version: "3.7"
+
+services:
+
+  db-tests:
+    container_name: {{ cookiecutter.project_slug }}-tests-db
+    image: postgres:13
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    environment:
+      - POSTGRES_DB=${DB_DATABASE}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    command: -p ${DB_PORT}
+
+  app-tests:
+    container_name: {{ cookiecutter.project_slug }}-tests-backend-api
+    build:
+      context: ..
+      dockerfile: ./docker/python/Dockerfile
+    volumes:
+      - ../backend/:/opt/{{ cookiecutter.project_slug }}/app/
+    environment:
+      - PYTHONPATH=/opt/{{ cookiecutter.project_slug }}/app
+      - DB_HOST=db-tests
+      - DB_PORT=${DB_PORT}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_DATABASE=${DB_DATABASE}
+      - API_HOST=${API_HOST}
+      - API_PORT=${API_PORT}
+      - API_PROTOCOL=${API_PROTOCOL}
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - GOOGLE_CLIENT_SECRETS_JSON=${GOOGLE_CLIENT_SECRETS_JSON}
+      - GOOGLE_USERINFO_SCOPE=${GOOGLE_USERINFO_SCOPE}
+      - PLATFORM=${PLATFORM}
+      - SECRET_KEY=${SECRET_KEY}
+      - OAUTHLIB_INSECURE_TRANSPORT=1
+    working_dir: /opt/{{ cookiecutter.project_slug }}/app
+    command: sh -c "sleep 3 && pipenv install --dev && pipenv run python -m pytest"
+    depends_on:
+      - db-tests

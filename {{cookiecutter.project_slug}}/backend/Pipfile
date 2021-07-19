@@ -1,0 +1,43 @@
+# pipenv lock -r --dev-only > dev-requirements.txt && pipenv lock -r > requirements.txt
+
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = "==0.*"
+uvicorn = "==0.*"
+ujson = "==4.*"
+gino-starlette = "==0.*"
+alembic = "==1.*"
+psycopg2-binary = "*"
+python-multipart = "*"
+fastapi-pagination = {extras = ["gino"], version = "*"}
+httpx = "*"
+google-auth = "*"
+google-auth-oauthlib = "*"
+python-jose = {extras = ["cryptography"], version = "*"}
+fastapi-versioning = "*"
+uvloop = "*"
+pydantic = {extras = ["email"], version = "*"}
+passlib = {extras = ["bcrypt"], version = "*"}
+
+[dev-packages]
+coverage = "==5.*"
+codecov = "==2.*"
+pytest = "==6.*"
+pytest-cov = "==2.*"
+pytest-flake8 = "==1.*"
+requests = "==2.*"
+pre-commit = "==2.*"
+async-asgi-testclient = "==1.*"
+pytest-asyncio = "==0.*"
+pytest-alembic = "==0.*"
+snapshottest = "*"
+pytest-dotenv = "*"
+pretty_errors = "==1.*"
+pytest-httpx = "*"
+
+[requires]
+python_version = "3.9"

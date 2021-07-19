@@ -1,0 +1,35 @@
+# Run and upload codecov report.
+
+name: Tests and codecov.
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: /opt/{{ cookiecutter.project_slug }}/app
+      PLATFORM: GITHUB
+      DB_PORT: 5431
+      DB_DATABASE: dev_db
+      DB_HOST: localhost
+      DB_USER: dev_user
+      DB_PASSWORD: dev_pass
+      API_PORT: 8000
+      API_HOST: 0.0.0.0
+      API_DOMAIN: localhost
+      API_PROTOCOL: http
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the docker-compose stack
+        run: |
+          cd docker
+          docker-compose -f docker-compose-test.yml up --build --abort-on-container-exit --exit-code-from app-tests
+      - uses: codecov/codecov-action@v1
+        with:
+          flags: unittests
+          fail_ci_if_error: true
