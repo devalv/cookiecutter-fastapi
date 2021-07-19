@@ -2,9 +2,9 @@
   "full_name": "Aleksei Devyatkin",
   "email": "aleksei@devyatkin.dev",
   "version": "0.1.0",
-  "project_name": "{{ cookiecutter.project_name }}",
-  "project_slug": "{{ cookiecutter.project_slug }}",
-  "project_short_description": "{{ cookiecutter.project_short_description }}",
+  "project_name": "YAFApi",
+  "project_slug": "yafapi",
+  "project_short_description": "Cookiecutter FastAPI boilerplate.",
   "github_username": "{{ cookiecutter.github_username }}",
   "pypi_username": "{{ cookiecutter.github_username }}",
   "_copy_without_render": [
