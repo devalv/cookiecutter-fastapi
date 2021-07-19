@@ -11,10 +11,10 @@ python -m pipenv install --dev
 echo "Installing pre-commit hooks"
 cd ..
 git init
+cd backend
 pipenv run pre-commit install
 
 echo "Adding pretty-errors"
-cd backend
 pipenv run python -m pretty_errors
 
 echo "Creating random secret keys"
