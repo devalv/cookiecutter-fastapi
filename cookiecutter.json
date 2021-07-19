@@ -11,8 +11,6 @@
         "*lint.yml",
         "codeql-analysis.yml",
         "lint.yml",
-        "tests.yml",
-
-  ],
-
+        "tests.yml"
+  ]
 }
