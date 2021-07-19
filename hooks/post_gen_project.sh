@@ -17,8 +17,12 @@ echo "Adding pretty-errors"
 cd backend
 pipenv run python -m pretty_errors
 
+echo "Creating random secret keys"
+cp core/.env.example core/.env
+cp tests/.env.example tests/.env
+sed "s/SECRET_VALUE/$(openssl rand -hex 32)/g" "core/.env"
+sed "s/SECRET_VALUE/$(openssl rand -hex 32)/g" "tests/.env"
+
 echo "Please read README.md"
-cd ..
-cat README.md
 
 echo "Done"

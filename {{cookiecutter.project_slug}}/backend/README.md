@@ -4,29 +4,14 @@
 
 ### First use
 
-#### 1. Install Pipenv
-You can do it by [yourself](https://pipenv.pypa.io/en/latest/) or use my dotfiles [MAC](https://github.com/devalv/mac_dotfiles) or [Ubuntu](https://github.com/devalv/ul_dotfiles).
-
-#### 2. Install dependencies
-```bash
-pipenv install --dev
-```
-
-#### 3. Create **.env** files from **.env.example** templates
-
-#### 4. Generate secure random secret key
-```bash
-openssl rand -hex 32
-```
-
-#### 5. Fill in external auth secrets in your **.env**
+#### 1. Fill in external auth secrets in your **.env**
 ```bash
 GOOGLE_CLIENT_ID=
 GOOGLE_USERINFO_SCOPE=
 GOOGLE_CLIENT_SECRETS_JSON=
 ```
 
-#### 6. Run docker or local services and start the app.
+#### 2. Run docker or local services and start the app.
 
 ### Installation without docker
 Try dotfiles templates [MAC](https://github.com/devalv/mac_dotfiles) or [Ubuntu](https://github.com/devalv/ul_dotfiles).
@@ -44,18 +29,6 @@ Try dotfiles templates [MAC](https://github.com/devalv/mac_dotfiles) or [Ubuntu]
 
 ### Tests
 Database connection options should be at ENV. You can use env_files plugin, and create tests/.env data + additional docker-compose configuration file:
-
-### .env file example
-```
-# Don't commit this to source control.
-DB_HOST=localhost
-DB_PORT=5432
-DB_USER=dev_user
-DB_PASSWORD=dev_pass
-DB_DATABASE=dev_db
-API_HOST=0.0.0.0
-API_PORT=8000
-```
 
 ## Dir structure
 

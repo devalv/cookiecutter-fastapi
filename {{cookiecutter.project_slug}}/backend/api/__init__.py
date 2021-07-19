@@ -20,7 +20,7 @@ def get_app() -> FastAPI:
         swagger_ui_init_oauth={
             "clientId": "please keep this value",
             "clientSecret": "please keep this value",
-            "appName": "Yet another wishlist maker",
+            "appName": "{{ cookiecutter.project_name }}",
         },
     )
 
