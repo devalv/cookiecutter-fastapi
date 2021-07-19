@@ -8,6 +8,11 @@
   "github_username": "{{ cookiecutter.github_username }}",
   "pypi_username": "{{ cookiecutter.github_username }}",
   "_copy_without_render": [
-        "*lint.yml"
-  ]
+        "*lint.yml",
+        "codeql-analysis.yml",
+        "lint.yml",
+        "tests.yml",
+
+  ],
+
 }

@@ -10,7 +10,7 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     env:
-      PYTHONPATH: /opt/{{ cookiecutter.project_slug }}/app
+      PYTHONPATH: /opt/app
       PLATFORM: GITHUB
       DB_PORT: 5431
       DB_DATABASE: dev_db
