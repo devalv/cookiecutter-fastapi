@@ -9,8 +9,8 @@
   "pypi_username": "{{ cookiecutter.github_username }}",
   "_copy_without_render": [
         "*lint.yml",
-        "codeql-analysis.yml",
-        "lint.yml",
-        "tests.yml"
+        "*github/workflows/codeql-analysis.yml",
+        "*github/workflows/lint.yml",
+        "*github/workflows/tests.yml"
   ]
 }
