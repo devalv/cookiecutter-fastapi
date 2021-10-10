@@ -5,8 +5,7 @@
   "project_name": "YAFApi",
   "project_slug": "yafapi",
   "project_short_description": "Cookiecutter FastAPI boilerplate.",
-  "github_username": "{{ cookiecutter.github_username }}",
-  "pypi_username": "{{ cookiecutter.github_username }}",
+  "github_username": "",
   "_copy_without_render": [
         "*lint.yml",
         "*github/workflows/codeql-analysis.yml",
