@@ -5,7 +5,14 @@ for a simple **FastAPI** project.
 
 ```bash
 $ pip install --upgrade cookiecutter
+Pre-commit should be installed before pulling template.
+$ pip install pre-commit
 $ cookiecutter gh:devalv/cookiecutter-fastapi
+Install pipenv and project dependencies
+$ python -m pip install -U pipenv
+$ cd backend && pipenv install --dev
+Pretty errors for extra verbosity
+$ pipenv run python -m pretty_errors
 ```
 
 For additional instructions please see [README](./{{cookiecutter.project_slug}}/README.md)
