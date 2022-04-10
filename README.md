@@ -1,4 +1,4 @@
-# Aleksei Devyatkin`s python simple project template
+# Fast API boilerplate
 
 This is a [Cookiecutter](https://github.com/cookiecutter/cookiecutter) template
 for a simple **FastAPI** project.
